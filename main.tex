@@ -1,0 +1,234 @@
+\RequirePackage{ifluatex, ifxetex} % these are for the portability of this example - can be omitted in any actual document made for a certain engine
+
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi>0
+\else
+  % only needed for using Greek letters outside math when running PDFLaTeX - leave out otherwise
+  %\PassOptionsToPackage{LGR}{fontenc}
+  %\RequirePackage{textgreek}
+\fi
+
+
+\documentclass[twoside]{tutthesis} % see appendix for list of options
+
+\pagestyle{headings} % Adds titles to the header
+
+% ifnameyear is defined to demonstrate both versions in a single file. You may leave it out and simply use one version throughout your file.
+\newif\ifnameyear
+\nameyearfalse
+
+
+
+% ==============
+% Basic packages
+% ==============
+% You should use these unless you really know what you're doing
+
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi>0
+\else\usepackage[utf8]{inputenc}
+\fi
+
+\usepackage[english]{babel} % The language of the thesis last
+\usepackage[export]{adjustbox}[2011/08/13]
+\usepackage{booktabs}
+
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+% If you are working with a minimal LateX distribution, you may have to install some extra packages. Make sure that at least babel-finnish (available in e.g. texlive-lang-european) and the basic fonts (e.g. texlive-fonts-recommended) are installed.
+
+\usepackage[fixlanguage]{babelbib} % You should use this unless you are using biblatex. Add option fixlanguage if you're writing in English (the thesis writing guide is asymmetric, requiring Finnish theses to have e.g. 'eds.' for sources in English, while requiring English theses to have all such parts in English)
+
+\ifnameyear\usepackage{natbib} % add option longnamesfirst if you want to have full author list with first citation
+\else\providecommand{\citep}{\cite} % This template is written using \citep to get name-year citations right, and in numerical mode the command is here aliased to the standard \cite. If you use numbered citations, leave this out and use \cite
+\fi
+
+% ===============
+% Useful packages
+% ===============
+% Packages which are not required for a thesis that follows guidelines, but may be convenient or necessary in common cases
+
+\usepackage{microtype} % subtle but nice improvements to how text is printed
+
+\usepackage{textcase} % may be used to keep parts of title lowercase
+
+\usepackage{array}
+\usepackage{tabularx} % e.g. multiline cells
+%\usepackage{calc} %for performing length arithmetic such as column width = text width minus some other width
+%\usepackage{longtable} % for tables spanning multiple pages
+
+%\usepackage{psfrag} % editing ps files
+%\usepackage{subfig} % parallel small figures a,b,c,...
+%\usepackage{rotating} % for rotating e.g. full-page figures
+
+\usepackage{dirtytalk}
+%\usepackage{csquotes}
+
+%\usepackage{siunitx} % nice formatting for combinations of number and unit
+\usepackage{amsopn} % For operator names; not necessary if amsmath is used
+%\usepackage[fleqn]{amsmath} %Extensions to math handling; if you use this, you should use e.g. gather instead of equation due to a hyperref bug
+
+\usepackage{listings} %Typesetting code
+\lstset{basicstyle=\footnotesize\ttfamily, numbers=left}
+\renewcommand{\lstlistingname}{Code} % Program if you're writing in English
+% If you want non-ASCII characters (e.g. in comments), check out the listingsutf8 package
+
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi>0
+  \usepackage[math-style=ISO]{unicode-math} % must not precede amsmath and most other math and font related packages
+\else
+  %\usepackage{bm} % The \bm command is used for bold italic variables used in some fields not to be used with unicode-math
+  %\usepackage[helvratio=1]{newtxtext} \usepackage{newtxmath}% some recommend the newtx fonts
+  \usepackage{textcomp} % symbols like \textdegree
+\fi
+
+% This allows the use of multiple footnotes
+\newcommand\fnsep{\textsuperscript{,}}
+% This allows the refs to have number and title
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1}: \nameref*{#1}}}
+%\newcommand*{\fullref}[1]{\hyperref[{#1}]{\ref*{#1} \nameref*{#1}}}
+
+% ===========================
+% Bibliographic information
+% ===========================
+% These must be set before loading pdfx or beginning document
+\author{Hauke Sandhaus}
+\title{Development of a Light Feedback System for Fully Autonomous Vehicles}
+\datethesisapproved{2017}{10}{30} % year, month, day; no leading zeroes; submitted for bachelor's theses and thesisapproved for master’s
+\thesistype{Master’s thesis} % Do not use ASCII apostrophe ' as it will not be substituted with the correct one (’) in the PDF metadata. Note that there are both short version (this) and a long one - "Master’s" vs. "Master of Science"
+\programme{Master’s Degree Programme in Human Computer Interaction} % Note apostrophes on all fields for PDF metadata
+\keywords{thesis, template, thesis structure, thesis layout}
+
+\examiner{Professor Eva Hornecker\and Dr. Jan Ehlers} %\and for plural
+\datetopicapproved{2018}{3}{16}% only for master’s theses
+
+
+% Packages that need to be loaded late
+% ----------------------------------------------
+\usepackage[a-2u]{pdfx} % If you're using PDFLatex and your version of pdfx is not recent enough, you may run into the inputencoding bug. In that case, load inputenc after pdfx (and replace any non-ASCII characters in the metadata with e.g. \"{a})
+
+
+%\usepackage{hyperref} % This must (usually) be the last package you load - load this OR pdfx (which also loads hyperref). Usage of pdfx would be nice, but if you have issues with that you may fall back to just hyperref
+
+\usepackage{changepage}                 % adjust margins for selected portions
+
+% wide page for side by side figures, tables, etc
+\newlength{\offsetpage}
+\setlength{\offsetpage}{1.0cm}
+\newenvironment{widepage}{\begin{adjustwidth}{-\offsetpage}{-\offsetpage}%
+    \addtolength{\textwidth}{2\offsetpage}}%for wide figures?
+{\end{adjustwidth}}
+
+\begin{document}
+
+\maketitle
+
+
+%First, the abstract in the language of the thesis (no language selection). Note that most fields are already defined
+
+\thesisdescription{Master of Science Thesis}
+\begin{abstract}
+The abstract is a self-contained, concise description of the thesis: what was the problem, what was done, what was the result.
+Do not include charts or tables in the abstract.
+
+First include the abstract written in the main language of the thesis and then the translation.
+A bachelor's thesis in Finnish must also have a name in English for archival.
+\end{abstract}
+
+%Then, the abstract in the other language (explicit language selection) except for bachelor's theses
+
+\chapter*{Preface}
+
+This document template is designed in accordance with the 2017 version of the TUT thesis writing guide, based on the LaTeX \emph{report} document class and earlier TUT LaTeX templates.
+
+The preface contains general information about the thesis process.
+Acknowledgements to those who contributed to the thesis are generally presented in the preface.
+It is not appropriate to criticize anyone in the preface, even though the preface will not affect your grade.
+The preface must fit on one page.
+Add the date, after which you have not made any revisions to the text, at the end of the preface.
+
+\vspace{2\baselineskip}
+
+In Weimar, Germany, on 16 July 2018
+
+\vspace{2\baselineskip}
+
+Hauke Sandhaus
+
+
+
+\tableofcontents
+
+\listoffigures
+%\listoftables
+
+
+
+\chapter*{List of Symbols and Abbreviations}
+
+% This is not a "proper" table, so no table environment
+
+% Suppressed left colsep; 20% - 1 x colsep; right colpsep; left colpadding; 80% - 1 x colpadding; suppressed right colpadding
+\begin{tabular}[h]{@{} p{0.2\textwidth-\tabcolsep} p{0.8\textwidth-\tabcolsep} @{}}
+CC license & Creative Commons license \\
+LaTeX & typesetting system for scientific writing \\
+SI system & Système international d'unités, International System of Units \\
+TUT & Tampere University of Technology \\
+URL & Uniform Resource Locator 
+\end{tabular}
+
+\begin{tabular}[h]{@{} p{0.15\textwidth-\tabcolsep} p{0.85\textwidth-\tabcolsep} @{}}
+$a$ & acceleration \\
+$\mathbf{F}$ & force \\
+$m$ & mass
+\end{tabular}
+
+The abbreviations and notations used in your thesis are defined collectively at the start of the thesis, and when they appear in the body for the first time.
+Parentheses are used with abbreviations then.
+
+
+% It may be useful to break the chapters into their own files and then do eg. \include{01-introduction} or \include{C-resultsdiscussion}
+
+\chapter{Introduction}
+\label{ch:Introduction}
+
+This template is associated with the Tampere University of Technology Thesis Writing Guide.
+A thesis or report typically includes the following chapters:
+
+\begin{tabular}[h]{l}
+Title page\\
+Abstract\\
+
+Preface\\
+Contents\\
+List of abbreviations and symbols\\
+1. Introduction\\
+2. Theoretical background\\
+3. Research methodology and materials\\
+4. Results and analysis (possibly split into separate chapters) \\
+5. Conclusions\\
+References\\
+Appendices (if applicable)
+\end{tabular}
+
+Chapter \fullref{ch:literature} of this template covers the basic rules of writing style in regard to figures, tables and mathematical notations.
+
+A documentation of the document class options is given as an appendix.
+
+\include{literature}
+
+
+\include{ideation}
+
+\include{realisation}
+
+\include{evaluation}
+
+\include{conclusion}
+
+
+%\addto\extrasenglish{\btxifchangecaseoff} % Controls the case-changing for English titles. Make sure that case is preserved for abbreviations and proper nouns, e.g. title={The {ABC} of {Tex}: An Introduction to the Typesetting System}
+
+
+\bibliographystyle{ieeestyle}
+
+\bibliography{references}
+
+\end{document}
