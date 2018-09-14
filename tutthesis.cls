@@ -1064,10 +1064,10 @@
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi>0
   \RequirePackage{fontspec}
   \newcommand*\@variantoptions{Extension=.otf, UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic}
-  \setmainfont{texgyretermes}[\@variantoptions] % 
+  \setmainfont{Roboto}%[\@variantoptions] % 
   \setboldmathrm{texgyretermes-bold}[Extension=.otf, BoldFont=*,ItalicFont=*italic,BoldItalicFont=*italic] % see https://github.com/wspr/fontspec/issues/307
   \setsansfont{texgyreheros}[\@variantoptions]
-  \setmonofont{texgyrecursor}[\@variantoptions]
+  %\setmonofont{texgyrecursor}[\@variantoptions]
   \@AtPreambleEnd{%
     \ltx@ifpackageloaded{unicode-math}{}{\usepackage[math-style=ISO]{unicode-math}}%
     \setmathfont{texgyretermes-math}[Extension=.otf, BoldFont=*]%

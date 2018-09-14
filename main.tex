@@ -12,12 +12,6 @@
 
 \pagestyle{headings} % Adds titles to the header
 
-% ifnameyear is defined to demonstrate both versions in a single file. You may leave it out and simply use one version throughout your file.
-\newif\ifnameyear
-\nameyearfalse
-
-
-
 % ==============
 % Basic packages
 % ==============
@@ -28,18 +22,21 @@
 \fi
 
 \usepackage[english]{babel} % The language of the thesis last
-\usepackage[export]{adjustbox}[2011/08/13]
+\usepackage[export]{adjustbox}[2018/09/12]
 \usepackage{booktabs}
+\usepackage[inline]{enumitem}
 
 \usepackage[normalem]{ulem}
 \useunder{\uline}{\ul}{}
 % If you are working with a minimal LateX distribution, you may have to install some extra packages. Make sure that at least babel-finnish (available in e.g. texlive-lang-european) and the basic fonts (e.g. texlive-fonts-recommended) are installed.
 
 \usepackage[fixlanguage]{babelbib} % You should use this unless you are using biblatex. Add option fixlanguage if you're writing in English (the thesis writing guide is asymmetric, requiring Finnish theses to have e.g. 'eds.' for sources in English, while requiring English theses to have all such parts in English)
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
 
-\ifnameyear\usepackage{natbib} % add option longnamesfirst if you want to have full author list with first citation
-\else\providecommand{\citep}{\cite} % This template is written using \citep to get name-year citations right, and in numerical mode the command is here aliased to the standard \cite. If you use numbered citations, leave this out and use \cite
-\fi
+%\ifnameyear\usepackage{natbib} % add option longnamesfirst if you want to have full author list with first citation
+%\else\providecommand{\citep}{\cite} % This template is written using \citep to get name-year citations right, and in numerical mode the command is here aliased to the standard \cite. If you use numbered citations, leave this out and use \cite
+%\fi
 
 % ===============
 % Useful packages
@@ -134,8 +131,12 @@ A bachelor's thesis in Finnish must also have a name in English for archival.
 
 %Then, the abstract in the other language (explicit language selection) except for bachelor's theses
 
-\chapter*{Preface}
+\chapter{Glossary}
+\label{ch:glossary}
 
+
+\chapter*{Preface}
+\label{ch:preface}
 This document template is designed in accordance with the 2017 version of the TUT thesis writing guide, based on the LaTeX \emph{report} document class and earlier TUT LaTeX templates.
 
 The preface contains general information about the thesis process.
@@ -226,8 +227,6 @@ A documentation of the document class options is given as an appendix.
 
 %\addto\extrasenglish{\btxifchangecaseoff} % Controls the case-changing for English titles. Make sure that case is preserved for abbreviations and proper nouns, e.g. title={The {ABC} of {Tex}: An Introduction to the Typesetting System}
 
-
-\bibliographystyle{ieeestyle}
 
 \bibliography{references}
 
