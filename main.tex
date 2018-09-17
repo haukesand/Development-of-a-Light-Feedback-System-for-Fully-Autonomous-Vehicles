@@ -8,7 +8,7 @@
 \fi
 
 
-\documentclass[twoside]{tutthesis} % see appendix for list of options
+\documentclass[oneside]{tutthesis} % see appendix for list of options
 
 \pagestyle{headings} % Adds titles to the header
 
@@ -17,15 +17,13 @@
 % ==============
 % You should use these unless you really know what you're doing
 
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi>0
-\else\usepackage[utf8]{inputenc}
-\fi
+\usepackage[utf8]{inputenc}
+
 
 \usepackage[english]{babel} % The language of the thesis last
 \usepackage[export]{adjustbox}[2018/09/12]
 \usepackage{booktabs}
 \usepackage[inline]{enumitem}
-
 \usepackage[normalem]{ulem}
 \useunder{\uline}{\ul}{}
 % If you are working with a minimal LateX distribution, you may have to install some extra packages. Make sure that at least babel-finnish (available in e.g. texlive-lang-european) and the basic fonts (e.g. texlive-fonts-recommended) are installed.
@@ -33,6 +31,7 @@
 \usepackage[fixlanguage]{babelbib} % You should use this unless you are using biblatex. Add option fixlanguage if you're writing in English (the thesis writing guide is asymmetric, requiring Finnish theses to have e.g. 'eds.' for sources in English, while requiring English theses to have all such parts in English)
 \usepackage{natbib}
 \bibliographystyle{abbrvnat}
+
 
 %\ifnameyear\usepackage{natbib} % add option longnamesfirst if you want to have full author list with first citation
 %\else\providecommand{\citep}{\cite} % This template is written using \citep to get name-year citations right, and in numerical mode the command is here aliased to the standard \cite. If you use numbered citations, leave this out and use \cite
@@ -44,8 +43,10 @@
 % Packages which are not required for a thesis that follows guidelines, but may be convenient or necessary in common cases
 
 \usepackage{microtype} % subtle but nice improvements to how text is printed
-
-\usepackage{textcase} % may be used to keep parts of title lowercase
+%\usepackage{textcase} % may be used to keep parts of title lowercase
+\makeatletter % get rid of microtype warnings of unknown origin
+\def\MT@warn@unknown{}
+\makeatother
 
 \usepackage{array}
 \usepackage{tabularx} % e.g. multiline cells
@@ -87,13 +88,13 @@
 % ===========================
 % These must be set before loading pdfx or beginning document
 \author{Hauke Sandhaus}
-\title{Development of a Light Feedback System for Fully Autonomous Vehicles}
-\datethesisapproved{2017}{10}{30} % year, month, day; no leading zeroes; submitted for bachelor's theses and thesisapproved for master’s
+\title{An Ambient Display for Feedforward Information in Autonomous Vehicles}
+\datethesisapproved{2018}{02}{19} % year, month, day; no leading zeroes; submitted for bachelor's theses and thesisapproved for master’s
 \thesistype{Master’s thesis} % Do not use ASCII apostrophe ' as it will not be substituted with the correct one (’) in the PDF metadata. Note that there are both short version (this) and a long one - "Master’s" vs. "Master of Science"
-\programme{Master’s Degree Programme in Human Computer Interaction} % Note apostrophes on all fields for PDF metadata
-\keywords{thesis, template, thesis structure, thesis layout}
+\programme{Master’s Degree Programme in Human-Computer Interaction} % Note apostrophes on all fields for PDF metadata
+\keywords{Autonomous vehicles, self-driving, peripheral sight, HCI, no-interface, WOz, driving simulator}
 
-\examiner{Professor Eva Hornecker\and Dr. Jan Ehlers} %\and for plural
+\examiner{Prof. Dr. Eva Hornecker\and Vertr.-Prof. Dr. Jan Ehlers} %\and for plural
 \datetopicapproved{2018}{3}{16}% only for master’s theses
 
 
@@ -115,39 +116,30 @@
 
 \begin{document}
 
-\maketitle
+%\maketitle
 
 
 %First, the abstract in the language of the thesis (no language selection). Note that most fields are already defined
 
-\thesisdescription{Master of Science Thesis}
-\begin{abstract}
-The abstract is a self-contained, concise description of the thesis: what was the problem, what was done, what was the result.
-Do not include charts or tables in the abstract.
+\chapter*{Abstract}
+\label{ch:abstract}
+For passengers in fully autonomous vehicles, not being able to anticipate upcoming actions can be discerning. My product idea addresses this issue by communicating driving decisions in advance, via light signals in passengers' peripheral vision. 
+The literature research, ideation, design, and prototyping are described. This thesis gives guidance in developing ambient displays of this kind, shows a solution to prototype light messages for varying interiors and lays possibilities for user studies out. 
 
-First include the abstract written in the main language of the thesis and then the translation.
-A bachelor's thesis in Finnish must also have a name in English for archival.
-\end{abstract}
+In one WoZ-based on-the-road-driving simulation with 14 participants, the aiding effect of feedforward information was affirmed. Two workshops with mobility-impaired people suggest that multi-modal feedforward information will be a necessity for them to make use out of the promises of autonomous vehicles. The motion of the ambient display activates passengers attention to changes of inertia, in future work this mitigating effect on car sickness should be analyzed. 
 
 %Then, the abstract in the other language (explicit language selection) except for bachelor's theses
 
-\chapter{Glossary}
-\label{ch:glossary}
+\include{glossary}
 
 
-\chapter*{Preface}
-\label{ch:preface}
-This document template is designed in accordance with the 2017 version of the TUT thesis writing guide, based on the LaTeX \emph{report} document class and earlier TUT LaTeX templates.
-
-The preface contains general information about the thesis process.
-Acknowledgements to those who contributed to the thesis are generally presented in the preface.
-It is not appropriate to criticize anyone in the preface, even though the preface will not affect your grade.
-The preface must fit on one page.
-Add the date, after which you have not made any revisions to the text, at the end of the preface.
+\chapter*{Acknowledgments}
+\label{ch:Acknowledgments}
+I wish to thank various people for their contribution to this project. Eva Hornecker and Jan Ehlers for their judgment and supervision. Phil Ventimiglia and Stefan Weissert from Bosch for their support. I am thankful to my parents for their harbor and support over all those years. I am grateful for my boyfriend to encourage and motivate me. I would like to thank both of my sisters, and my younger for proofreading. Finally, I would like to thank the colleagues and interns at Bosch Plymouth for their amicableness. 
 
 \vspace{2\baselineskip}
 
-In Weimar, Germany, on 16 July 2018
+In Weimar, Germany, on 19 September 2018
 
 \vspace{2\baselineskip}
 
@@ -162,56 +154,7 @@ Hauke Sandhaus
 
 
 
-\chapter*{List of Symbols and Abbreviations}
-
-% This is not a "proper" table, so no table environment
-
-% Suppressed left colsep; 20% - 1 x colsep; right colpsep; left colpadding; 80% - 1 x colpadding; suppressed right colpadding
-\begin{tabular}[h]{@{} p{0.2\textwidth-\tabcolsep} p{0.8\textwidth-\tabcolsep} @{}}
-CC license & Creative Commons license \\
-LaTeX & typesetting system for scientific writing \\
-SI system & Système international d'unités, International System of Units \\
-TUT & Tampere University of Technology \\
-URL & Uniform Resource Locator 
-\end{tabular}
-
-\begin{tabular}[h]{@{} p{0.15\textwidth-\tabcolsep} p{0.85\textwidth-\tabcolsep} @{}}
-$a$ & acceleration \\
-$\mathbf{F}$ & force \\
-$m$ & mass
-\end{tabular}
-
-The abbreviations and notations used in your thesis are defined collectively at the start of the thesis, and when they appear in the body for the first time.
-Parentheses are used with abbreviations then.
-
-
-% It may be useful to break the chapters into their own files and then do eg. \include{01-introduction} or \include{C-resultsdiscussion}
-
-\chapter{Introduction}
-\label{ch:Introduction}
-
-This template is associated with the Tampere University of Technology Thesis Writing Guide.
-A thesis or report typically includes the following chapters:
-
-\begin{tabular}[h]{l}
-Title page\\
-Abstract\\
-
-Preface\\
-Contents\\
-List of abbreviations and symbols\\
-1. Introduction\\
-2. Theoretical background\\
-3. Research methodology and materials\\
-4. Results and analysis (possibly split into separate chapters) \\
-5. Conclusions\\
-References\\
-Appendices (if applicable)
-\end{tabular}
-
-Chapter \fullref{ch:literature} of this template covers the basic rules of writing style in regard to figures, tables and mathematical notations.
-
-A documentation of the document class options is given as an appendix.
+\include{introduction}
 
 \include{literature}
 
@@ -229,5 +172,6 @@ A documentation of the document class options is given as an appendix.
 
 
 \bibliography{references}
+\include{authorship}
 
 \end{document}

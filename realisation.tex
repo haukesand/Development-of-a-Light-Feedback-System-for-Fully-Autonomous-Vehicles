@@ -24,9 +24,17 @@ Cone cells, which are densely distributed in the center of the eye (the fovea), 
     \caption[Color spectrum]{Scoptic and photopic color spectrum. Downloaded from: \url{https://chdv1991.wordpress.com/2011/08/02/the-use-of-red-light-for-illumination/}}
     \label{fig:spectrum}
 \end{figure}
-Another effect that needs to be mind is change blindness; it refers to the illusion that we as humans perceive our world as if we see everything with high acuity even outside of the fovea. In fact, changes that occur outside our fovea, that do not attract our attention (by motion), are usually missed. A study by \citet{Goddard2013AScale} identified a new type of change blindness to isoluminant color changes. Scoptic vision (low light) and photopic (bright light) vision also differ in color perception; because the rods, which are more sensitive, take over the vision during night, everything appears less saturated and bluer (see \emph{\fullref{fig:flow}}) 
+Another effect that needs to be mind is change blindness; it refers to the illusion that we as humans perceive our world as if we see everything with high acuity even outside of the fovea. In fact, changes that occur outside our fovea, that do not attract our attention (by motion), are usually missed. A study by \citet{Goddard2013AScale} identified a new type of change blindness to isoluminant color changes. Scoptic vision (low light) and photopic (bright light) vision also differ in color perception; because the rods, which are more sensitive, take over the vision during night, everything appears less saturated and bluer (see \emph{\fullref{fig:flow}}).
 
-In general it needs to be taken care that the stimulus is strong in color, lightness and motion. As red-green color sensitivity declines more towards the periphery, pure red and green color should not be used for important messages. Instead pink could be used as it stimulates short-wavelength cones and rods more.
+Other color models than RGB can be advantageous for color manipulation. The RGB color model is commonly used as it is based on the additive color perception of the human color vision. RGB was already used for analog color photography and is also used in digital photo sensors and RGB displays. Hue-Saturation-Value and Hue-Saturation-Lightness are often used in color pickers as they allow to mix the lightness, saturation, and color hue independently; they match more closely how human vision perceives color-making attributes\footnote{\url{https://en.wikipedia.org/wiki/Comparison_of_color_models_in_computer_graphics}}. Lab color is specifically designed to approximate human vision and implements the  opponent process color theory\footnote{\url{https://en.wikipedia.org/wiki/Opponent_process}}\fnsep\footnote{\url{https://blog.asmartbear.com/color-wheels.html}}. Its L component more closely matches human perception of lightness than the more simple color models\footnote{\url{https://en.wikipedia.org/wiki/CIELAB_color_space\#CIELAB}}. The Fastled LED library makes use of HSV colors with a 'rainbow' hue that has wider yellow band compared to 'spectrum' hues\footnote{\url{https://github.com/FastLED/FastLED/wiki/FastLED-HSV-Colors}}\fnsep\footnote{\url{https://en.wikipedia.org/wiki/Rainbow\#Number_of_colours_in_spectrum_or_rainbow}}.  
+
+\begin{figure}
+    \includegraphics[width=1\textwidth]{fig/spectrum.jpg}
+    \caption[LED and Human Spectrum]{Relative Color LED spectrum and relative human spectral sensitivities (nanometer). Graphic by author, Data by \citep{Stockman2000TheGenotype} and extracted from \url{https://en.wikipedia.org/wiki/File:RGB_LED_Spectrum.svg}.}
+    \label{fig:spectrumLED}
+\end{figure}
+
+In general it needs to be taken care that the stimulus is strong in color, lightness and motion. As red-green color sensitivity declines more towards the periphery, pure red and green color should not be used for important messages. Instead pink\footnote{\url{http://aschoonerofscience.com/science-communication/the-physics-of-pink-why-it-isnt-in-the-rainbow/}} could be used as it stimulates short-wavelength cones and rods more; and so do turquoise and cyan.This might be particularly important as the individual LED light colors usually have a very narrow-spectrum band (see \fullref{fig:spectrumLED}. Even though color perception in the periphery is reduced, the light will get partially reflected and refracted inside the vehicle's cabin and onto the media which is in focus of the users' fovea.  
 
 \section{LED considerations}
 \label{sec:LEDconsiderations}
@@ -77,7 +85,7 @@ The animations should all be very smooth without stutter and visible edges. Ther
 
 
 \begin{figure}
-    \includegraphics[width=0.8\textwidth]{fig/FPS.JPG}
+    \includegraphics[width=\textwidth]{fig/FPS.JPG}
     \caption[Framerate Limit of RGB LEDs]{Framerate Limit for RGB LED chains with different baudrates. Image adapted from: \url{http://www.partsnotincluded.com/ambilight/calculating-adalight-framerate-limits/}}
     \label{fig:FPS}
 \end{figure}
@@ -115,7 +123,7 @@ The CAN bus is usually not encrypted though, this means that in theory all data 
 
 \begin{figure}
 \centering
-    \includegraphics[width=1.12\textwidth]{fig/Flow.png}
+    \includegraphics[width=1.1\textwidth]{fig/Flow.png}
     \caption[Software Diagram]{Individual Components of the Application}
     \label{fig:software}
 \end{figure}
@@ -131,12 +139,12 @@ The draw class takes care of all animations during their lifetime. The public fu
 \section{Demonstrator}
 
 \begin{figure}
-     \includegraphics[height=0.36\textwidth]{fig/public.JPG}\hfill\includegraphics[height=0.36\textwidth]{fig/private.JPG}
+     \includegraphics[width=\textwidth]{fig/public.JPG}\hfill\includegraphics[width=\textwidth]{fig/private.JPG}
     \caption[Desktop Demonstrator]{The miniature demonstrator and control of it (Left:  Public vehicle configuration. Right: Private configuration.)}
     \label{fig:demonstrator}
 \end{figure}
 \begin{figure}
-\includegraphics[height=0.38\textwidth]{fig/explosion.JPG}
+\includegraphics[width=0.9\textwidth]{fig/explosion.JPG}
     \caption[Explosion-view Demonstrator]{Explosion view of the light diffusor}
     \label{fig:demonstratorExplosion}
 \end{figure}
@@ -159,7 +167,7 @@ The loop can be transmitted as amount of full animation loops \emph{(integer)}, 
 After the first training rounds with the driving wizard and control wizard the buttons in the interface were rearranged according to his preference with the most frequent events close to the left and right border of the screen for quicker usage by two hands in vertical mode (See  \emph{\fullref{lst:eventmessage}}). 
 
 \begin{figure}
-    \includegraphics[height=0.31\textwidth]{fig/WizardHands}\hfill\includegraphics[height=0.31\textwidth]{fig/IlluminationWizard-.JPG}
+    \includegraphics[width=\textwidth]{fig/WizardHands}\hfill\includegraphics[width=\textwidth]{fig/IlluminationWizard-.JPG}
     \caption[Wizard Tab]{Left: Wizard Tablet. 
    Right: Wizard Interface.}
     \label{fig:wizard}
@@ -170,7 +178,7 @@ After the first training rounds with the driving wizard and control wizard the b
 The test subjects should get an idea about what a ride in a potential autonomous cab might look like. For this reason a web app was developed. This app shows the route that will be driven and the participants current location on it. Furthermore, the app is used to call the cab to the studies pick up location. This enhances the impression of an autonomous vehicle and disengages the study subjects further from other human contact. The user presses the 'call a cab' button once he is ready to start the test drive and the wizards receive a push notification on their smartphone through the Pushbullet service\footnote{\url{https://docs.pushbullet.com/}}. This wizards drive the test vehicle to the pick up location and honk to inform the user of the cab's arrival. 
 
 \begin{figure}
-    \includegraphics[height=0.31\textwidth]{fig/capp}
+    \includegraphics[width=\textwidth]{fig/capp}
     \caption[Call a Cab App]{The web app to call the cab}
     \label{fig:capp}
 \end{figure}
@@ -179,7 +187,7 @@ The test subjects should get an idea about what a ride in a potential autonomous
 \label{sec:physical}
 
 \begin{figure}
-    \includegraphics[width=0.8\textwidth]{fig/wizardfinal}
+    \includegraphics[width=1\textwidth]{fig/wizardfinal}
     \caption[Communication Overview]{Communication between individual components}
     \label{fig:communication}
 \end{figure}
@@ -204,11 +212,11 @@ In the front the tube is hold together, covers connectors and a few electronic p
 
 \subsection{Control Unit}
 \label{ssec:controlunit}
-The Raspberry is installed in a housing on the ceiling. It was modeled in a CAD application and then 3D printed. It has cutouts for four arcade buttons that can light up, for a liquid crystal display and for a video camera. The layout and placement are inspired by the Waymo self driving vehicles (Fig:\emph{\fullref{fig:fig-waymo}}). There is a button for starting the ride and for emergency stops (pull over); this might give the passenger a sense of control. Furthermore, the Waymo vehicle has a 'lock doors butto'n and a 'call for help' button. These two were omitted in the favor of a 'reading light' button and a 'Guide on/off' button. 
+The Raspberry is installed in a housing on the ceiling. It was modeled in a CAD application and then 3D printed. It has cutouts for four arcade buttons that can light up, for a liquid crystal display and for a video camera. The layout and placement are inspired by the Waymo self driving vehicles (Fig:\emph{\fullref{fig:fig-waymo}}). There is a button for starting the ride and for emergency stops (pull over); this might give the passenger a sense of control. Furthermore, the Waymo vehicle has a 'lock doors button' and a 'call for help' button. These two were omitted in the favor of a 'reading light' button and a 'Guide on/off' button. Further, a wide-angle camera is housed in the control unit. It has a comparatively good low light quality and can be operated over WiFi. It is used to record the test drives without making participants feel like they are being completely monitored and is needed for a fully autonomous vehicle to film passengers, too. 
 
 \begin{figure}
-\includegraphics[height=0.38\textwidth]{fig/monitor.png}\hfill\includegraphics[height=0.38\textwidth]{fig/boxes.jpg}
-\caption[Control Unit]{Control unit inside the car prototype with lit-up buttons. CAD files for control unit and foam roll connector.}
+\includegraphics[width=\textwidth]{fig/monitor.png}\hfill\includegraphics[height=0.36\textwidth]{fig/KabelH.png}\hfill\includegraphics[height=0.36\textwidth]{fig/controlBox2.JPG}
+\caption[Control Unit]{Top:Control unit inside the car prototype with lit-up buttons. Bottom: 3D files for foam roll connector and contorl unit.}
 \label{fig:boxes}
 \end{figure}
 

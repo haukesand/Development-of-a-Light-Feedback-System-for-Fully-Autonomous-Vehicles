@@ -710,7 +710,7 @@
         \@programme\par%
         \@testexaminers\renewcommand*{\and}{ \namesand\ }%
         \if@manyexaminers\examinersheading\else\examinerheading\fi: \@examiner\par%
-        External supervisors: Philip Ventimiglia and Stefan Weissert\par%
+        External supervisor: Philip Ventimiglia, Car Multimedia, Robert Bosch LLC\par%
       }%
       \newcommand*{\sep}{,}%
       \keywordsheading: \@keywords\par%
@@ -1045,7 +1045,7 @@
 % Initial settings at document start
 % ----------------------------------
 \pagestyle{plain}
-\pagenumbering{alph} % visible only in PDF reader
+\pagenumbering{Roman} % visible only in PDF reader
 
 
 % Miscellaneous
@@ -1061,13 +1061,26 @@
 % Use fonts that have a uniform look with the Times New Roman / Arial used on the MS Office side
 
 \RequirePackage{ifxetex}
+
+
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi>0
   \RequirePackage{fontspec}
+
   \newcommand*\@variantoptions{Extension=.otf, UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic}
-  \setmainfont{Roboto}%[\@variantoptions] % 
+
+ \setmainfont[ %
+  ItalicFont=Roboto-RegularItalic.ttf, % or whatever
+  BoldFont=Roboto-Medium.ttf, % uses regular in place of bold
+]{Roboto-Regular.ttf} % main font
+
   \setboldmathrm{texgyretermes-bold}[Extension=.otf, BoldFont=*,ItalicFont=*italic,BoldItalicFont=*italic] % see https://github.com/wspr/fontspec/issues/307
-  \setsansfont{texgyreheros}[\@variantoptions]
-  %\setmonofont{texgyrecursor}[\@variantoptions]
+  
+  \setsansfont[ItalicFont=Roboto-BoldItalic.ttf, 
+  BoldFont=Roboto-Black.ttf]{Roboto-Bold.ttf} % main font
+
+
+  \setmonofont{Andale Mono}
+  
   \@AtPreambleEnd{%
     \ltx@ifpackageloaded{unicode-math}{}{\usepackage[math-style=ISO]{unicode-math}}%
     \setmathfont{texgyretermes-math}[Extension=.otf, BoldFont=*]%
