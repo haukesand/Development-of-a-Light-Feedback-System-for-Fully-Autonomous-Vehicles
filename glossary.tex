@@ -12,7 +12,7 @@ ACC & Adaptive Cruise Control & An optional cruise control system for road vehic
 App & Application software & Computer software designed to perform a group of coordinated functions, tasks, or activities for the benefit of the user. \\
  & Arduino & An open source computer hardware and software company, project, and user community that designs and manufactures single-board microcontrollers and microcontroller kits for building digital devices and interactive objects that can sense and control objects in the physical and digital world. \\
 AR & Augmented Reality & An interactive experience of a real-world environment whereby the objects that reside in the real-world are "augmented" by computer-generated perceptual information, sometimes across multiple sensory modalities. \\
- & Backseat driver & A passenger in a car who gives usually unwanted driving advice to the driver.Or in general someone who gives unwanted advice or who tries to control something that is supposed to be controlled by another person. \\
+ & Backseat driver & A passenger in a car who gives usually unwanted driving advice to the driver. Or in general someone who gives unwanted advice or who tries to control something that is supposed to be controlled by another person. \\
  & Bit banging & A colloquial term used to describe various techniques in which serial communications utilize software instead of dedicated hardware to process and make use of signals. Software directly sets and samples the state of pins on a microcontroller, and is responsible for all parameters of the signal: timing, levels, synchronization, etc. \\
 BSW & Blind Spot Warning & A vehicle-based sensor device that detects other vehicles or bicycles located to the driver’s side and rear. \\
 Bosch CM & Bosch Car Multimedia & A manufacturer of car multimedia systems such as speakers, radios and navigation systems that originated out of Blaupunkt GmbH. \\
@@ -25,13 +25,13 @@ Bosch CM & Bosch Car Multimedia & A manufacturer of car multimedia systems such 
 \renewcommand{\arraystretch}{1.5}
 \begin{tabularx}{\textwidth}{smb}
 & Bresenham Algorithm & An algorithm that determines the points of an n-dimensional raster that should be selected in order to form a close approximation to a straight line between two points. It is commonly used to draw line primitives in a bitmap image. \\
-& Broadcom & An American fabless semiconductor company and organizes the fabrication of the processor chip and the wifi processor which is used by the charitable Raspberry Pi Foundation. \\
+& Broadcom & An American fabless semiconductor company that organizes the fabrication of the processor chip and the wifi processor which is used by the charitable Raspberry Pi Foundation. \\
 CAN bus & Controller Area Network & A robust vehicle bus standard designed to allow microcontrollers and devices to communicate with each other in applications without a host computer. \\
 FCW & Forward Collision Warning & Uses a radar to detect vehicles or obstacles in front of the car. \\
  & Handshaking & An automated process of negotiation between two communicating participants through the exchange of information that establishes the protocols of a communication link at the start of the communication, before full communication begins. \\
 HUD & Head Up Display & A head-up display is any transparent display that presents data without requiring users to look away from their usual viewpoints. The origin of the name stems from a pilot being able to view information with the head positioned "up" and looking forward, instead of angled down looking at lower instruments. \\
  & Instrument cluster & A dashboard (also called dash or instrument cluster) is a control panel usually located directly ahead of a vehicle's driver, displaying instrumentation and controls for the vehicle's operation. \\
-I2C & Inter-Integrated Circuit & A synchronous, multi-master, multi-slave, serial computer bus invented. It is widely used for attaching lower-speed peripheral ICs to processors and microcontrollers in short-distance, intra-board communication. \\
+I2C & Inter-Integrated Circuit & A synchronous, multi-master, multi-slave, serial computer bus. It is widely used for attaching lower-speed peripheral ICs to processors and microcontrollers in short-distance, intra-board communication. \\
  & Jerk, snap & A quick sudden movement. In physics is jerk the rate of change of acceleration; that is, the time derivative of acceleration, and as such the second derivative of velocity (snap is the third), or the third time derivative of position. \\
 
 
@@ -82,3 +82,11 @@ V2V & Vehicle To Vehicle & An automobile technology designed to allow automobile
 WOz & Wizard of Oz & A research experiment in which subjects interact with a computer system that subjects believe to be autonomous, but which is actually being operated or partially operated by an unseen human being.
  \end{tabularx}
 \end{table}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+\blfootnote{Definitions are from:} \blfootnote{\url{https://www.wikipedia.org/}} \blfootnote{\url{https://www.merriam-webster.com/}} \blfootnote{\url{https://en.wiktionary.org}} \blfootnote{\url{https://mycardoeswhat.org/}}

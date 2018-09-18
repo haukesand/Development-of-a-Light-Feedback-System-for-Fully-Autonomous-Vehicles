@@ -999,33 +999,7 @@
 % If babel is not used, the above English definitions are in effect. If babel is used with [english, finnish] then the above definitions are overridden with Finnish ones when the document starts, and then overridden again when the {otherlanguage}{english} is used
 
 \AtBeginDocument{%
-  \@ifpackagewith{babel}{finnish}{%
-    \addto\captionsfinnish{%
-      \def\namesand{ja}%
-      \def\examinerheading{Tarkastaja}%
-      \def\examinersheading{Tarkastajat}%
-      \def\examinerapprovedon{Tarkastaja ja aihe hyv\"{a}ksytty}%
-      \def\examinersapprovedon{Tarkastajat ja aihe hyv\"{a}ksytty}%
-      \def\submittedon{J\"{a}tetty tarkastettavaksi}%
-      \def\universityname{Tampereen teknillinen yliopisto}%
-      \def\pagesheading{sivua}%
-      \def\appendixpageheading{liitesivu}%
-      \def\appendixpagesheading{liitesivua}%
-      \def\majorheading{P\"{a}\"{a}aine}%
-      \def\keywordsheading{Avainsanat}%
-      \def\contentsname{Sis\"{a}llysluettelo}%
-      \def\listfigurename{Kuvaluettelo}%
-      \def\listtablename{Taulukkoluettelo}%
-      \def\bibname{L\"{a}hteet}%
-      \def\@printmonthyear#1-#2-#3\stopmark{\ifcase0#2\or
-      Tammikuu\or Helmikuu\or Maaliskuu\or Huhtikuu\or Toukokuu\or Kes\"{a}kuu\or
-      Hein\"{a}kuu\or Elokuu\or Syyskuu\or Lokakuu\or Marraskuu\or Joulukuu\fi \space #1}%
-      \def\@printtitlepagedate#1-#2-#3\stopmark{\number#3. \ifcase0#2\or
-      tammikuuta\or helmikuuta\or maaliskuuta\or huhtikuuta\or toukokuuta\or kes\"{a}kuuta\or
-      hein\"{a}kuuta\or elokuuta\or syyskuuta\or lokakuuta\or marraskuuta\or joulukuuta\fi \space #1}%
-      \def\draftnote{luonnos}%
-    }%
-  }{}%
+{}%
   \@ifpackagewith{babel}{english}{%
     \addto\captionsenglish{%
       \defineenglish%
@@ -1146,9 +1120,8 @@
   \fi}
 
 \RequirePackage[hyphens]{url} % do this for correct linebreaks in footnotes
-\RequirePackage{ifdraft}
 % Hyperref not loaded on class side for compatibility reasons
-
+\RequirePackage{ifdraft}
 \endinput
 %%
 %% End of file `report.cls'.

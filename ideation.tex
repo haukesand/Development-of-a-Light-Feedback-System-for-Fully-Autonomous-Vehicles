@@ -62,7 +62,7 @@ Finally, the preferences of my supervisors at Bosch resulted in these topics:
 
 \section{Concept}
 \label{sec:concept}
-My personal interest is human-computer-interaction beyond screen-based interfaces. Concept cars from vehicle manufactures (\emph{\fullref{sec:conceptcars}}) rely heavily on large screens. Screens can be seen everywhere: In tables, windows, across the doors, behind the back seats, across the whole front and in the back of the seats. The best interface is no interface (\emph{\autoref{sec:nointerface}})! 
+My personal interest is human-computer-interaction beyond screen-based interfaces. Concept cars from vehicle manufactures (\emph{\fullref{sec:conceptcars}}) rely heavily on large screens. Screens can be seen everywhere: In tables, windows, across the doors, behind the back seats, across the whole front and in the back of the seats. The best interface is no interface (\emph{\autoref{sec:nointerface}}). 
 
 Almost in a 'flash of inspiration' the idea for the final product emerged: \emph{An indirectly illuminating LED bar that surrounds the whole cabin 360, and reaches all passengers with fluently distributed ambient information and mood lighting.} This light system should provide passengers with individual zone lightning that can be adjusted simply by touching it; enable the autonomous vehicles assistant to guide attention throughout the vehicle's cabin. Personal assistants such as Amazon Alexa and Google Assistant do not just rely on voice feedback but deepen the interaction through simple light feedback. This LED bar should be used to tell passengers crucial driving decisions the vehicle planned out and also allow it to communicate direction independently of the direction of travel: e.g., \say{Look over here for the empire state building}.
 There is no driver to distract, therefore, brighter and more elaborate lightning can be used in cars. Fixed reading lights do not work with dynamic seating arrangements. Lightning can be used to calm or energize. Brought-ins (e.g., laptops, smartphones, game consoles and ebooks) will be the preferred entertainment and productivity tools over integrated infotainment systems. Car - passenger interaction is crucial, even if driving 'just works' without any interference by humans. 
@@ -73,7 +73,7 @@ There is no driver to distract, therefore, brighter and more elaborate lightning
     \label{fig:conceptrender}
 \end{figure}
 
-To convince supervisors of the potency of the concept and to try the feasibility of indirect lighting in vehicle cabins early on, looping GIF animations ( \emph{\fullref{fig:conceptrender}}) were rendered with the Blender Cycles renderer which provides global illumination through path tracing\footnote{\url{https://cglearn.codelight.eu/pub/computer-graphics/global-illumination}}. This allows visualizing indirect light and the light bounces inside the vehicle cabin. The mood board in \emph{\autoref{fig:smoodboard}} contains visual and emotional inspiration for the project. It helps to set the atmosphere, communicate the idea of a finished product and the feelings it should provoke early on in the creative design process\cite{Cassidy2011TheTool}. 
+To convince supervisors of the potency of the concept and to try the feasibility of indirect lighting in vehicle cabins early on, looping GIF animations ( \emph{\fullref{fig:conceptrender}}) were rendered with the Blender Cycles renderer which provides global illumination through path tracing\footnote{\url{https://cglearn.codelight.eu/pub/computer-graphics/global-illumination}}. This allows visualizing indirect light and the light bounces inside the vehicle cabin. The 3D renderings use models that are licenced under creative commons license\footnote{\url{www.blendswap.com}: 1950's VW Van by Jay-Artist, Audi R8 V8 by Neubi, Mountain And River Low Poly by Hoboo}. The mood board in \emph{\autoref{fig:smoodboard}} contains visual and emotional inspiration for the project. It helps to set the atmosphere, communicate the idea of a finished product and the feelings it should provoke early on in the creative design process \cite{Cassidy2011TheTool}.
 
 \begin{figure}
 \centering
@@ -95,19 +95,19 @@ Feedforward is a new type of feedback that, in my opinion, should be provided by
 \subsection{Message types}
 The options for output in autonomous vehicles are almost endless. For multiple reasons, the users should not be overwhelmed with feedback from the vehicle. The low-resolution light display is limited by the number of different animations that can be displayed, the user cannot learn too many new messages at once and he might get annoyed by useless feedback. In a user study, we should only focus on a subset of messages to reduce complexity. Thereupon, it needs to be carefully curated what is considered important enough to be shown to the users.
 
-In a driving context, it makes sense to distinguish between ‘right now’, soon and planned long-term information. ‘Right now’ is real-time information from the vehicle such as sensor data or outputs of the vehicle (driving). ‘Soon’ can be retrieved, e.g., from map data in the form of, e.g., calculated trajectories. Examples of planned long-term information are the route planning or traffic information. The light display might be best equipped to signal ‘right now’ and soon information because more complex future information is difficult to encode in such a ambient display and might be better suited for show through voice or displays. In the following scenarios that can be encoded by light animations are depicted. 
+In a driving context, it makes sense to distinguish between 'right now', 'soon' and 'planned long-term' information. ‘Right now’ is real-time information from the vehicle such as sensor data or outputs of the vehicle (driving). ‘Soon’ can be retrieved, e.g., from map data in the form of, e.g., calculated trajectories. Examples of planned long-term information are the route planning or traffic information. The light display might be best equipped to signal ‘right now’ and soon information because more complex future information is difficult to encode in such a ambient display and might be better suited for show through voice or displays. In the following scenarios that can be encoded by light animations are depicted. 
 
 \subsubsection{Sudden driving behaviors}
 Most of the sudden driving behaviors should only happen very rarely. Ideally, the autonomous vehicle is capable of foreseeing these scenarios early on and slow down smoothly. However, if they do happen the car should tell the passenger during these risky moves that it knows about the situation and is in control. Outside Vision is a light effect to show that other road users, who are driving recklessly, are noticed. (\emph{\fullref{fig:sudden}}). 
 \begin{figure}
-    \includegraphics[width=1\textwidth]{fig/sudden.JPG}\hfill\
+    \includegraphics[width=1\textwidth]{fig/suddenmid.png}\hfill\
     \caption[Sudden Information]{Exemplary sudden information}
     \label{fig:sudden}
 \end{figure}
 \subsubsection{Planned}
 Planned driving movements are most frequently shown. An autonomous vehicle or driver decides for these movements hundreds of times during driving. Even if the passengers can feel these movements with their body and deduce what the car is doing from how the street runs, the car should tell that is about to perform these actions. I hypothesize that the more noticeable these movements are, the more necessary it is to communicate them. Actions that are less frequent but deviate from the normal driving are more important to augment. (\emph{\fullref{fig:planned}}). 
 \begin{figure}
-    \includegraphics[width=1\textwidth]{fig/planned.JPG}\hfill\
+    \includegraphics[width=1\textwidth]{fig/planned_1366.png}\hfill\
     \caption[Planned information]{Exemplary planned information}
     \label{fig:planned}
 \end{figure}
@@ -115,15 +115,15 @@ Planned driving movements are most frequently shown. An autonomous vehicle or dr
 \subsubsection{Route}
 Route information is easily displayed through the navigation system of a car. Some of these pieces of information can be communicated actively by a light bar instead of passively by a display. Arrival time could be communicated by rising brightness; waking up the passengers and signaling that they have to become active again. Enter \& Exit can be animations that guide the passengers side of the car that it is safest to get off. Light signals can be used to draw attention to a specific direction. For example, a car could talk to the passengers about historical sights on the route and use light to show where to draw the attention (\emph{\fullref{fig:route}}). 
 \begin{figure}
-    \includegraphics[width=1\textwidth]{fig/route.JPG}\hfill\
+    \includegraphics[width=1\textwidth]{fig/route.png}\hfill\
     \caption[Route information]{Exemplary route information}
     \label{fig:route}
 \end{figure}
 
- In \emph{\emph{\fullref{fig:lightevents}}} the messages are ordered by the underlying data and expected occurrence. Frequent events should be less notable, whereas exceptions must be strongly visible. States should not be too visible. Values can influence states and events but must not necessarily be visualized constantly. The subset of animations used in the final prototype was chosen according to their expected influence on driving comfort. 
+ In \emph{\fullref{fig:lightevents}} the messages are ordered by the underlying data and expected occurrence. Frequent events should be less notable, whereas exceptions must be strongly visible. States should not be too visible. Values can influence states and events but must not necessarily be visualized constantly. The subset of animations used in the final prototype was chosen according to their expected influence on driving comfort. 
  
 \begin{figure}
-    \includegraphics[height=\textwidth]{fig/tab-}
+    \includegraphics[width=\textwidth]{fig/tab-}
     \caption[Light Events]{Categorization of light messages by underling data}
     \label{fig:lightevents}
 \end{figure}

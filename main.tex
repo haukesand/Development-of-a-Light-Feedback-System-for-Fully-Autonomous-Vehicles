@@ -18,7 +18,8 @@
 % You should use these unless you really know what you're doing
 
 \usepackage[utf8]{inputenc}
-
+%\usepackage[x-1a]{pdfx}
+\usepackage[a-2u]{pdfx}
 
 \usepackage[english]{babel} % The language of the thesis last
 \usepackage[export]{adjustbox}[2018/09/12]
@@ -41,7 +42,7 @@
 % Useful packages
 % ===============
 % Packages which are not required for a thesis that follows guidelines, but may be convenient or necessary in common cases
-
+\usepackage{pifont}
 \usepackage{microtype} % subtle but nice improvements to how text is printed
 %\usepackage{textcase} % may be used to keep parts of title lowercase
 \makeatletter % get rid of microtype warnings of unknown origin
@@ -65,6 +66,7 @@
 %\usepackage[fleqn]{amsmath} %Extensions to math handling; if you use this, you should use e.g. gather instead of equation due to a hyperref bug
 
 \usepackage{listings} %Typesetting code
+\usepackage[hang,flushmargin]{footmisc}
 \lstset{basicstyle=\footnotesize\ttfamily, numbers=left}
 \renewcommand{\lstlistingname}{Code} % Program if you're writing in English
 % If you want non-ASCII characters (e.g. in comments), check out the listingsutf8 package
@@ -100,7 +102,7 @@
 
 % Packages that need to be loaded late
 % ----------------------------------------------
-\usepackage[a-2u]{pdfx} % If you're using PDFLatex and your version of pdfx is not recent enough, you may run into the inputencoding bug. In that case, load inputenc after pdfx (and replace any non-ASCII characters in the metadata with e.g. \"{a})
+%\usepackage[a-2u]{pdfx} % If you're using PDFLatex and your version of pdfx is not recent enough, you may run into the inputencoding bug. In that case, load inputenc after pdfx (and replace any non-ASCII characters in the metadata with e.g. \"{a})
 
 
 %\usepackage{hyperref} % This must (usually) be the last package you load - load this OR pdfx (which also loads hyperref). Usage of pdfx would be nice, but if you have issues with that you may fall back to just hyperref
@@ -124,9 +126,9 @@
 \chapter*{Abstract}
 \label{ch:abstract}
 For passengers in fully autonomous vehicles, not being able to anticipate upcoming actions can be discerning. My product idea addresses this issue by communicating driving decisions in advance, via light signals in passengers' peripheral vision. 
-The literature research, ideation, design, and prototyping are described. This thesis gives guidance in developing ambient displays of this kind, shows a solution to prototype light messages for varying interiors and lays possibilities for user studies out. 
+The literature research, ideation, design, and prototyping are described. This thesis gives guidance in developing ambient displays of this kind, shows a solution to prototype light messages for varying interiors and lays out possibilities for user studies . 
 
-In one WoZ-based on-the-road-driving simulation with 14 participants, the aiding effect of feedforward information was affirmed. Two workshops with mobility-impaired people suggest that multi-modal feedforward information will be a necessity for them to make use out of the promises of autonomous vehicles. The motion of the ambient display activates passengers attention to changes of inertia, in future work this mitigating effect on car sickness should be analyzed. 
+In one WoZ-based on-the-road-driving simulation with 14 participants, the aiding effect of feedforward information was affirmed. Two workshops with mobility-impaired people suggest that multi-modal feedforward information will be a necessity for them to make use out of the promises of autonomous vehicles. The motion of the ambient display activates the passengers attention to changes of inertia, in future work this mitigating effect on car sickness should be analyzed. 
 
 %Then, the abstract in the other language (explicit language selection) except for bachelor's theses
 
@@ -135,7 +137,7 @@ In one WoZ-based on-the-road-driving simulation with 14 participants, the aiding
 
 \chapter*{Acknowledgments}
 \label{ch:Acknowledgments}
-I wish to thank various people for their contribution to this project. Eva Hornecker and Jan Ehlers for their judgment and supervision. Phil Ventimiglia and Stefan Weissert from Bosch for their support. I am thankful to my parents for their harbor and support over all those years. I am grateful for my boyfriend to encourage and motivate me. I would like to thank both of my sisters, and my younger for proofreading. Finally, I would like to thank the colleagues and interns at Bosch Plymouth for their amicableness. 
+I wish to thank various people for their contribution to this project. Eva Hornecker and Jan Ehlers for their judgment and supervision. Phil Ventimiglia and Stefan Weissert from Bosch for their support. I am thankful to my parents for their harbor and support for all those years. I am grateful to my boyfriend for encouraging and motivating me. I would like to thank both of my sisters, and my younger for proofreading. Finally, I would like to thank the colleagues and interns at Bosch Plymouth for their kindness. 
 
 \vspace{2\baselineskip}
 
@@ -164,6 +166,8 @@ Hauke Sandhaus
 \include{realisation}
 
 \include{evaluation}
+
+\include{futurework}
 
 \include{conclusion}
 
